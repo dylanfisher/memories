@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_15_025350) do
+ActiveRecord::Schema.define(version: 2019_08_15_033134) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -67,6 +67,16 @@ ActiveRecord::Schema.define(version: 2019_08_15_025350) do
     t.index ["cacheable_type", "cacheable_id"], name: "index_cache_records_on_type_and_id"
   end
 
+  create_table "locations", force: :cascade do |t|
+    t.string "title"
+    t.float "latitude"
+    t.float "longitude"
+    t.string "slug"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["slug"], name: "index_locations_on_slug", unique: true
+  end
+
   create_table "media_items", id: :serial, force: :cascade do |t|
     t.string "title"
     t.string "slug"
@@ -85,6 +95,29 @@ ActiveRecord::Schema.define(version: 2019_08_15_025350) do
     t.index ["created_at"], name: "index_media_items_on_created_at"
     t.index ["media_item_status"], name: "index_media_items_on_media_item_status"
     t.index ["slug"], name: "index_media_items_on_slug", unique: true
+  end
+
+  create_table "memories", force: :cascade do |t|
+    t.string "title"
+    t.date "date"
+    t.text "description"
+    t.string "slug"
+    t.integer "status", default: 1, null: false
+    t.jsonb "blockable_metadata", default: {}
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["blockable_metadata"], name: "index_memories_on_blockable_metadata", using: :gin
+    t.index ["slug"], name: "index_memories_on_slug", unique: true
+    t.index ["status"], name: "index_memories_on_status"
+  end
+
+  create_table "memory_locations", force: :cascade do |t|
+    t.bigint "location_id", null: false
+    t.bigint "memory_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["location_id"], name: "index_memory_locations_on_location_id"
+    t.index ["memory_id"], name: "index_memory_locations_on_memory_id"
   end
 
   create_table "menus", id: :serial, force: :cascade do |t|
@@ -178,4 +211,6 @@ ActiveRecord::Schema.define(version: 2019_08_15_025350) do
 
   add_foreign_key "block_slots", "block_kinds"
   add_foreign_key "block_slots", "block_layouts"
+  add_foreign_key "memory_locations", "locations"
+  add_foreign_key "memory_locations", "memories"
 end

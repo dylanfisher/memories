@@ -1,0 +1,54 @@
+<%= render 'admin/headers/index', records: @locations, model_name: 'Location' %>
+
+<div class="table-responsive">
+  <table class="forest-table table table-striped">
+    <thead>
+      <tr>
+        <% if Location.statusable? %>
+          <th></th>
+        <% end %>
+        <th><%= table_sorter title: 'ID', path: :admin_locations_path, scope: :by_id, default_order: :desc %></th>
+        <th><%= table_sorter title: 'Slug', path: :admin_locations_path, scope: :by_slug, default_order: :asc %></th>
+        <th>Title</th>
+        <th>Latitude</th>
+        <th>Longitude</th>
+        <th><%= table_sorter title: 'Created&nbsp;at'.html_safe, path: :admin_locations_path, scope: :by_created_at, default_order: :desc %></th>
+        <th><%= table_sorter title: 'Updated&nbsp;at'.html_safe, path: :admin_locations_path, scope: :by_updated_at, default_order: :desc %></th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @locations.each do |location| %>
+        <tr>
+          <% if Location.statusable? %>
+            <td><%= status_indicator location %></td>
+          <% end %>
+          <td><%= location.id %></td>
+          <td><%= location.slug %></td>
+          <td><%= location.title %></td>
+          <td><%= location.latitude %></td>
+          <td><%= location.longitude %></td>
+          <td><%= forest_date location.created_at %></td>
+          <td><%= forest_date location.updated_at %></td>
+          <td width="1"><%= link_to 'Edit', edit_admin_location_path(location), class: 'btn btn-xs btn-primary', role: 'button' %></td>
+          <td width="1">
+            <% if try('location_path', location) %>
+              <% if location.respond_to?(:to_friendly_param) %>
+                <% param = location.to_friendly_param %>
+              <% else %>
+                <% param = location %>
+              <% end %>
+              <%= link_to 'Show', location_path(param), class: 'btn btn-xs btn-info', role: 'button', data: { turbolinks: false } %>
+            <% else %>
+              <%= link_to 'Show', admin_location_path(location), class: 'btn btn-xs btn-info', role: 'button', data: { turbolinks: false } %>
+            <% end %>
+          </td>
+          <td width="1"><%= link_to 'Destroy', [:admin, location], method: :delete, class: 'btn btn-xs btn-danger', role: 'button', data: { confirm: 'Are you sure you want to destroy this Location?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<%= paginate @locations %>

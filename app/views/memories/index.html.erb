@@ -1,0 +1,7 @@
+<% cache ['memories_index', Memory.cache_key], expires_in: 4.weeks do %>
+  <% @memories.each do |memory| %>
+    <%= link_to memory_path(memory.to_friendly_param) do %>
+      <%= md memory.title %>
+    <% end %>
+  <% end %>
+<% end %>

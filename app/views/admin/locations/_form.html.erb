@@ -1,0 +1,32 @@
+<%= simple_form_for([:admin, @location]) do |f| %>
+  <%= f.error_notification %>
+  <div class="row">
+    <div class="col-sm-12">
+      <div class="panel panel-default" data-collapse-parent>
+        <div class="panel-heading">
+          <h3 class="panel-title">
+            Metadata
+            <button type="button" class="btn btn-default btn-xs pull-right" data-collapse-trigger>
+              <div class="collapsable-icon glyphicon glyphicon-chevron-up"></div>
+            </button>
+          </h3>
+        </div>
+        <div class="panel-body" data-collapse-body>
+          <div class="form-inputs">
+            <div class="row">
+              <div class="col-sm-6">
+                <%= render 'admin/form_inputs/slug', f: f %>
+                <%= f.input :title %>
+                <%= f.input :latitude %>
+                <%= f.input :longitude %>
+                <%= f.button :submit, class: 'btn-success' %>
+              </div>
+              <div class="col-sm-6">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

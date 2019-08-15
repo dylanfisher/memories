@@ -1,0 +1,5 @@
+<% block.media_items.each do |media_item| %>
+  <%= link_to media_item.attachment.url, class: 'blank-link' do %>
+    <%= lazy_image media_item, wrapper_class: 'mb-5' %>
+  <% end %>
+<% end %>

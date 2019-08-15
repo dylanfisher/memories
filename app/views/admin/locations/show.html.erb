@@ -1,0 +1,18 @@
+<p>Find me in app/views/forest/locations/show.html.erb</p>
+
+<%# content_for :page_description, @location.description if @location.try(:description).present? %>
+
+<p>
+  <b>Title</b>
+  <%= @location.title %>
+</p>
+<p>
+  <b>Latitude</b>
+  <%= @location.latitude %>
+</p>
+<p>
+  <b>Longitude</b>
+  <%= @location.longitude %>
+</p>
+
+<%= render_blocks @location %>

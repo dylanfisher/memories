@@ -24,6 +24,8 @@ $(document).on('turbolinks:load', function(e) {
   App.windowWidth  = $(window).width();
   App.windowHeight = $(window).height();
 
+  App.$body = $('body');
+
   App.runFunctions(App.pageLoad);
   App.runFunctions(App.pageResize);
   App.runFunctions(App.pageScroll);
