@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%= render 'layouts/shared_head' %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'forest/application_public', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= jquery_include_tag %>
+    <%= javascript_include_tag 'forest/application_public' %>
+    <% if Rails.env.production? && Setting.for(:google_analytics).present? %>
+      <script async src="https://www.googletagmanager.com/gtag/js?id=<%= Setting.for(:google_analytics) %>"></script>
+      <script>
+        App.googleAnalyticsConfig = [];
+        App.googleAnalyticsConfig.push('<%= Setting.for(:google_analytics) %>');
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        for (var i = 0; i < App.googleAnalyticsConfig.length; i++) {
+          gtag('config', App.googleAnalyticsConfig[i]);
+        }
+      </script>
+    <% end %>
+  </head>
+  <body class="<%= @body_classes.try(:join, ' ') %>" style="<%= @body_styles.try(:join, ' ') %>">
+    <%= render 'shared/header' %>
+    <main id="application-wrapper" class="application-wrapper">
+      <%= yield %>
+    </main>
+    <%= render 'shared/footer' %>
+  </body>
+</html>
