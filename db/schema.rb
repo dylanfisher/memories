@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_19_021651) do
+ActiveRecord::Schema.define(version: 2019_10_19_184649) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -98,6 +98,22 @@ ActiveRecord::Schema.define(version: 2019_10_19_021651) do
   end
 
   create_table "image_blocks", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "image_grid_block_slides", force: :cascade do |t|
+    t.bigint "image_grid_block_id", null: false
+    t.bigint "media_item_id", null: false
+    t.integer "position"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["image_grid_block_id"], name: "index_image_grid_block_slides_on_image_grid_block_id"
+    t.index ["media_item_id"], name: "index_image_grid_block_slides_on_media_item_id"
+  end
+
+  create_table "image_grid_blocks", force: :cascade do |t|
+    t.integer "col_size"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -268,6 +284,8 @@ ActiveRecord::Schema.define(version: 2019_10_19_021651) do
   add_foreign_key "collage_block_items", "media_items"
   add_foreign_key "image_block_items", "image_blocks"
   add_foreign_key "image_block_items", "media_items"
+  add_foreign_key "image_grid_block_slides", "image_grid_blocks"
+  add_foreign_key "image_grid_block_slides", "media_items"
   add_foreign_key "image_sequence_block_slides", "image_sequence_blocks"
   add_foreign_key "image_sequence_block_slides", "media_items"
   add_foreign_key "memory_locations", "locations"

@@ -7,6 +7,7 @@ window.App = window.App || {};
 App.pageLoad = [];
 App.pageResize = [];
 App.pageScroll = [];
+App.pageScrollThrottled = [];
 App.teardown = [];
 App.runFunctions = function(array) {
   for (var i = array.length - 1; i >= 0; i--) {
@@ -40,6 +41,12 @@ $(window).on('scroll', function() {
 
   App.runFunctions(App.pageScroll);
 });
+
+// Throttled scroll
+
+$(window).on('scroll', $.throttle( 500, function() {
+  App.runFunctions(App.pageScrollThrottled);
+}));
 
 //////////////////////////////////////////////////////////////
 // On resize
