@@ -1,0 +1,19 @@
+// Images
+
+.lazy-image {
+  transition: opacity 0.6s;
+}
+
+.lazyload,
+.lazyloading {
+  opacity: 0;
+}
+
+.lazyloaded {
+  opacity: 1;
+}
+
+.forest-image-jump-fix--image-jpeg,
+.lazy-image--background {
+  background-color: $image-placeholder-background-color;
+}

@@ -1,14 +1,15 @@
 // Font stacks
-$default: sans-serif;
+$font-medium: 'FeijoaMedium', serif;
+$font-display: 'FeijoaDisplay', serif;
+$font-bold: 'FeijoaBold', serif;
 
-// Body text
 @mixin body-text {
   font-size: 16px;
   letter-spacing: 0;
   line-height: 1.4;
-  font-family: $default;
+  font-family: $font-medium;
 
-  @include breakpoint(sm) {
+  @include breakpoint(md) {
     font-size: 20px;
   }
 }
@@ -17,3 +18,15 @@ $default: sans-serif;
 @mixin default-font {
   @include body-text;
 }
+
+@mixin large-title {
+  font-size: 34px;
+  letter-spacing: 0;
+  line-height: 1.4;
+  font-family: $font-display;
+
+  @include breakpoint(md) {
+    font-size: 54px;
+  }
+}
+.large-title { @include large-title; }

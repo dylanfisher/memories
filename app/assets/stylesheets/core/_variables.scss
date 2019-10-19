@@ -9,6 +9,7 @@ $white: #FFFFFF;
 $black: #000000;
 
 // Color assignments
+$image-placeholder-background-color: rgba(0, 0, 0, 0.1);
 
 // Transitions
 $tt: 0.2s;
@@ -17,7 +18,7 @@ $tt: 0.2s;
 $gutter: 15px;
 
 $site-max-width: 1400px;
-$site-padding-sm: 30px;
+$site-padding-sm: 0;
 
 $block-margin: 50px;
 $block-margin-sm: 80px;
