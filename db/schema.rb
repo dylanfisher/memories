@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_15_040310) do
+ActiveRecord::Schema.define(version: 2019_10_19_010150) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -78,6 +78,24 @@ ActiveRecord::Schema.define(version: 2019_08_15_040310) do
   end
 
   create_table "image_blocks", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "image_sequence_block_slides", force: :cascade do |t|
+    t.bigint "image_sequence_block_id", null: false
+    t.bigint "media_item_id", null: false
+    t.integer "position"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["image_sequence_block_id"], name: "index_image_sequence_block_slides_on_image_sequence_block_id"
+    t.index ["media_item_id"], name: "index_image_sequence_block_slides_on_media_item_id"
+  end
+
+  create_table "image_sequence_blocks", force: :cascade do |t|
+    t.integer "duration", default: 300
+    t.integer "col_size", default: 12
+    t.integer "col_offset", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -228,6 +246,8 @@ ActiveRecord::Schema.define(version: 2019_08_15_040310) do
   add_foreign_key "block_slots", "block_layouts"
   add_foreign_key "image_block_items", "image_blocks"
   add_foreign_key "image_block_items", "media_items"
+  add_foreign_key "image_sequence_block_slides", "image_sequence_blocks"
+  add_foreign_key "image_sequence_block_slides", "media_items"
   add_foreign_key "memory_locations", "locations"
   add_foreign_key "memory_locations", "memories"
 end

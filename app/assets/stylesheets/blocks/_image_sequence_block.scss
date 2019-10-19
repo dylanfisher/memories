@@ -1,0 +1,21 @@
+// Image Sequence Block
+
+.image-sequence-block {
+
+}
+
+.image-sequence-block__images {
+  position: relative;
+}
+
+.image-sequence-block__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+
+  &.active {
+    position: static;
+    opacity: 1;
+  }
+}
