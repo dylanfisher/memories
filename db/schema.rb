@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_15_033134) do
+ActiveRecord::Schema.define(version: 2019_08_15_040310) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,6 +65,21 @@ ActiveRecord::Schema.define(version: 2019_08_15_033134) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["cacheable_type", "cacheable_id"], name: "index_cache_records_on_type_and_id"
+  end
+
+  create_table "image_block_items", force: :cascade do |t|
+    t.bigint "image_block_id", null: false
+    t.bigint "media_item_id", null: false
+    t.integer "position"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["image_block_id"], name: "index_image_block_items_on_image_block_id"
+    t.index ["media_item_id"], name: "index_image_block_items_on_media_item_id"
+  end
+
+  create_table "image_blocks", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "locations", force: :cascade do |t|
@@ -211,6 +226,8 @@ ActiveRecord::Schema.define(version: 2019_08_15_033134) do
 
   add_foreign_key "block_slots", "block_kinds"
   add_foreign_key "block_slots", "block_layouts"
+  add_foreign_key "image_block_items", "image_blocks"
+  add_foreign_key "image_block_items", "media_items"
   add_foreign_key "memory_locations", "locations"
   add_foreign_key "memory_locations", "memories"
 end

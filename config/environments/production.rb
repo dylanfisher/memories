@@ -92,19 +92,19 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  # config.paperclip_defaults = {
-  #   storage: :s3,
-  #   preserve_files: false,
-  #   s3_region: Rails.application.credentials.dig(:aws, :aws_region),
-  #   s3_credentials: {
-  #     bucket: Rails.application.credentials.dig(:aws, :s3_bucket_name),
-  #     access_key_id: Rails.application.credentials.dig(:aws, :aws_access_key_id),
-  #     secret_access_key: Rails.application.credentials.dig(:aws, :aws_secret_key_id)
-  #   },
-  #   url: ':s3_alias_url',
-  #   path: '/production/v2/:class/:attachment/:id_partition/:style/:filename',
-  #   s3_headers: { 'Cache-Control' => 'public, max-age=31536000' },
-  #   s3_protocol: :https,
-  #   s3_host_alias: Rails.application.credentials.dig(:asset_host).sub(/^https?:\/\//, '')
-  # }
+  config.paperclip_defaults = {
+    storage: :s3,
+    preserve_files: false,
+    s3_region: Rails.application.credentials.dig(:aws, :aws_region),
+    s3_credentials: {
+      bucket: Rails.application.credentials.dig(:aws, :s3_bucket_name),
+      access_key_id: Rails.application.credentials.dig(:aws, :aws_access_key_id),
+      secret_access_key: Rails.application.credentials.dig(:aws, :aws_secret_key_id)
+    },
+    url: ':s3_alias_url',
+    path: '/production/v2/:class/:attachment/:id_partition/:style/:filename',
+    s3_headers: { 'Cache-Control' => 'public, max-age=31536000' },
+    s3_protocol: :https,
+    s3_host_alias: Rails.application.credentials.dig(:asset_host).sub(/^https?:\/\//, '')
+  }
 end
