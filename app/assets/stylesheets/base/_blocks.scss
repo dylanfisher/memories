@@ -2,6 +2,10 @@
 
 .block {
   margin-bottom: 60px;
+
+  @include breakpoint(sm) {
+    margin-bottom: 10vh;
+  }
 }
 
 .block--last {

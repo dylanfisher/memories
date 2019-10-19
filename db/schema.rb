@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_19_010150) do
+ActiveRecord::Schema.define(version: 2019_10_19_021651) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,6 +65,26 @@ ActiveRecord::Schema.define(version: 2019_10_19_010150) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["cacheable_type", "cacheable_id"], name: "index_cache_records_on_type_and_id"
+  end
+
+  create_table "collage_block_items", force: :cascade do |t|
+    t.bigint "media_item_id", null: false
+    t.bigint "collage_block_id", null: false
+    t.decimal "collage_position_left"
+    t.decimal "collage_position_top"
+    t.decimal "collage_item_width"
+    t.decimal "collage_item_height"
+    t.integer "collage_z_index"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["collage_block_id"], name: "index_collage_block_items_on_collage_block_id"
+    t.index ["media_item_id"], name: "index_collage_block_items_on_media_item_id"
+  end
+
+  create_table "collage_blocks", force: :cascade do |t|
+    t.decimal "collage_height_ratio"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "image_block_items", force: :cascade do |t|
@@ -244,6 +264,8 @@ ActiveRecord::Schema.define(version: 2019_10_19_010150) do
 
   add_foreign_key "block_slots", "block_kinds"
   add_foreign_key "block_slots", "block_layouts"
+  add_foreign_key "collage_block_items", "collage_blocks"
+  add_foreign_key "collage_block_items", "media_items"
   add_foreign_key "image_block_items", "image_blocks"
   add_foreign_key "image_block_items", "media_items"
   add_foreign_key "image_sequence_block_slides", "image_sequence_blocks"
