@@ -2,9 +2,9 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-sm-12">
-        <% block.media_items.each do |media_item| %>
+        <% block.media_items.each_with_index do |media_item, index| %>
           <%= link_to media_item.attachment.url, class: 'blank-link' do %>
-            <%= lazy_image media_item, wrapper_class: 'mb-5' %>
+            <%= lazy_image media_item, wrapper_class: "#{'mt-5' unless index.zero?}" %>
           <% end %>
         <% end %>
       </div>
