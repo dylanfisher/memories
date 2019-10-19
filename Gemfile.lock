@@ -1,8 +1,8 @@
 GIT
   remote: https://github.com/dylanfisher/forest.git
-  revision: 261e8ceb9785d0c6a353bdc5d6a4254951b66b15
+  revision: 3c5a928a17d1053cb3d7726903575d8097d67a7e
   specs:
-    forest (0.113.2)
+    forest (0.113.3)
       aws-sdk-s3
       bootstrap-sass
       cocoon
