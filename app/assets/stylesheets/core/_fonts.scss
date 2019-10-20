@@ -1,27 +1,113 @@
 @font-face {
-  font-family: 'FeijoaBold';
-  src: font-url('FeijoaBold.woff2') format('woff2'),
-       font-url('FeijoaBold.woff') format('woff');
+  font-family: 'NationalTest-Black';
+  src: font-url('NationalTest-Black.woff') format('woff');
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'FeijoaDisplay';
-  src: font-url('FeijoaDisplay.woff2') format('woff2'),
-       font-url('FeijoaDisplay.woff') format('woff');
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'FeijoaMedium';
-  src: font-url('FeijoaMedium.woff2') format('woff2'),
-       font-url('FeijoaMedium.woff') format('woff');
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'FeijoaMedium';
-  src: font-url('FeijoaMediumItalic.woff2') format('woff2'),
-       font-url('FeijoaMediumItalic.woff') format('woff');
+  font-family: 'NationalTest-Black';
+  src: font-url('NationalTest-BlackItalic.woff') format('woff');
   font-style: italic;
+}
+
+@font-face {
+  font-family: 'NationalTest-Bold';
+  src: font-url('NationalTest-Bold.woff') format('woff');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NationalTest-Bold';
+  src: font-url('NationalTest-BoldItalic.woff') format('woff');
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'NationalTest-Book';
+  src: font-url('NationalTest-Book.woff') format('woff');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NationalTest-Book';
+  src: font-url('NationalTest-BookItalic.woff') format('woff');
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'NationalTest-Extrabold';
+  src: font-url('NationalTest-Extrabold.woff') format('woff');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NationalTest-Extrabold';
+  src: font-url('NationalTest-ExtraboldItalic.woff') format('woff');
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'NationalTest-Light';
+  src: font-url('NationalTest-Light.woff') format('woff');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NationalTest-Light';
+  src: font-url('NationalTest-LightItalic.woff') format('woff');
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'NationalTest-Medium';
+  src: font-url('NationalTest-Medium.woff') format('woff');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NationalTest-Medium';
+  src: font-url('NationalTest-MediumItalic.woff') format('woff');
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'NationalTest-Regular';
+  src: font-url('NationalTest-Regular.woff') format('woff');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NationalTest-Regular';
+  src: font-url('NationalTest-RegularItalic.woff') format('woff');
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'NationalTest-Semibold';
+  src: font-url('NationalTest-Semibold.woff') format('woff');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NationalTest-Semibold';
+  src: font-url('NationalTest-SemiboldItalic.woff') format('woff');
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'NationalTest-Thin';
+  src: font-url('NationalTest-Thin.woff') format('woff');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'NationalTest-Thin';
+  src: font-url('NationalTest-ThinItalic.woff') format('woff');
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'FoundersGrotMonoTest-Regular.woff';
+  src: font-url('FoundersGrotMonoTest-Regular.woff') format('woff');
+  font-style: normal;
 }

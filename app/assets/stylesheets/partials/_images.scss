@@ -17,3 +17,34 @@
 .lazy-image--background {
   background-color: $image-placeholder-background-color;
 }
+
+.background-image {
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.landscape-image {
+  height: 0;
+  padding-bottom: 66.66%;
+}
+
+.exif-data {
+  position: absolute;
+  bottom: $gutter;
+  left: $gutter;
+  z-index: 1;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.exif-data__text {
+  background-color: $white;
+}
+
+.forest-image-jump-fix {
+  &:hover {
+    .exif-data {
+      opacity: 1;
+    }
+  }
+}

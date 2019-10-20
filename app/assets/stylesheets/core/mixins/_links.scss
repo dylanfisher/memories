@@ -33,7 +33,7 @@
 
   &:hover {
     @include breakpoint(sm) {
-      border-bottom: 1px dashed;
+      color: $highlight-color;
     }
   }
 }

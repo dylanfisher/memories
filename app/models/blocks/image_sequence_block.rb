@@ -12,4 +12,15 @@ class ImageSequenceBlock < BaseBlock
   def self.display_icon
     'glyphicon glyphicon-picture'
   end
+
+  def image_size
+    case
+    when col_size < 4
+      :small
+    when col_size < 7
+      :medium
+    else
+      :large
+    end
+  end
 end

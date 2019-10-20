@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_19_184649) do
+ActiveRecord::Schema.define(version: 2019_10_20_221829) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,8 +68,8 @@ ActiveRecord::Schema.define(version: 2019_10_19_184649) do
   end
 
   create_table "collage_block_items", force: :cascade do |t|
-    t.bigint "media_item_id", null: false
-    t.bigint "collage_block_id", null: false
+    t.bigint "media_item_id"
+    t.bigint "collage_block_id"
     t.decimal "collage_position_left"
     t.decimal "collage_position_top"
     t.decimal "collage_item_width"
@@ -160,6 +160,7 @@ ActiveRecord::Schema.define(version: 2019_10_19_184649) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "media_item_status", default: 0
+    t.jsonb "exif_data", default: {}
     t.index ["attachment_content_type"], name: "index_media_items_on_attachment_content_type"
     t.index ["created_at"], name: "index_media_items_on_created_at"
     t.index ["media_item_status"], name: "index_media_items_on_media_item_status"

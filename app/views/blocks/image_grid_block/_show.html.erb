@@ -4,7 +4,7 @@
       <% block.media_items.each do |media_item| %>
         <%= content_tag :div, class: "col-md-#{block.col_size}" do %>
           <%= link_to media_item.attachment.url, class: 'blank-link' do %>
-            <%= lazy_image media_item, wrapper_class: 'mb-gutter' %>
+            <%= lazy_image media_item, size: block.image_size, wrapper_class: 'mb-gutter' %>
           <% end %>
         <% end %>
       <% end %>

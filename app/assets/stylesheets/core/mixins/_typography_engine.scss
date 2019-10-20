@@ -1,16 +1,20 @@
 // Font stacks
-$font-medium: 'FeijoaMedium', serif;
-$font-display: 'FeijoaDisplay', serif;
-$font-bold: 'FeijoaBold', serif;
+$font-thin: 'NationalTest-Thin', sans-serif;
+$font-book: 'NationalTest-Book', sans-serif;
+$font-regular: 'NationalTest-Regular', sans-serif;
+$font-medium: 'NationalTest-Medium', sans-serif;
+$font-black: 'NationalTest-Black', sans-serif;
+$font-bold: 'NationalTest-Bold', sans-serif;
+$font-mono-regular: 'FoundersGrotMonoTest-Regular', monospace;
 
 @mixin body-text {
-  font-size: 16px;
+  font-size: 18px;
   letter-spacing: 0;
   line-height: 1.4;
-  font-family: $font-medium;
+  font-family: $font-book;
 
   @include breakpoint(md) {
-    font-size: 20px;
+    font-size: 24px;
   }
 }
 .body-text { @include body-text; }
@@ -22,11 +26,27 @@ $font-bold: 'FeijoaBold', serif;
 @mixin large-title {
   font-size: 34px;
   letter-spacing: 0;
-  line-height: 1.4;
-  font-family: $font-display;
+  line-height: 1;
+  font-family: $font-bold;
 
   @include breakpoint(md) {
     font-size: 54px;
   }
 }
 .large-title { @include large-title; }
+
+@mixin small-text {
+  font-size: 16px;
+  letter-spacing: 0;
+  line-height: 1.2;
+  font-family: $font-regular;
+}
+.small-text { @include small-text; }
+
+@mixin caption {
+  font-size: 12px;
+  letter-spacing: 0;
+  line-height: 1.2;
+  font-family: $font-mono-regular;
+}
+.caption { @include caption; }

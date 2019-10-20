@@ -67,7 +67,7 @@ Rails.application.configure do
 
   config.paperclip_defaults = {
     storage: :s3,
-    preserve_files: true,
+    preserve_files: false,
     s3_region: Rails.application.credentials.dig(:aws, :aws_region),
     s3_credentials: {
       bucket: Rails.application.credentials.dig(:aws, :s3_bucket_name),

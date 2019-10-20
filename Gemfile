@@ -15,6 +15,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'autoprefixer-rails'
 gem 'dalli'
 gem 'rack-cors', require: 'rack/cors'
+gem 'exifr'
 
 group :development do
   gem 'listen'

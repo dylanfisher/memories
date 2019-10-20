@@ -2,7 +2,7 @@ class CollageBlock < BaseBlock
   has_many :collage_block_items, dependent: :destroy
   has_many :media_items, through: :collage_block_items
 
-  accepts_nested_attributes_for :collage_block_items, allow_destroy: true, reject_if: :all_blank
+  accepts_nested_attributes_for :collage_block_items, allow_destroy: true, reject_if: proc { |attributes| attributes['media_item_id'].blank? }
 
   def self.permitted_params
     [

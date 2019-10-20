@@ -2,7 +2,6 @@
   <% block.collage_block_items.each do |collage_block_item| %>
     <%= content_tag :div, class: 'collage-block__item', style: collage_block_item.css_styles do %>
       <%= link_to collage_block_item.media_item.attachment.url, class: 'collage-block__image blank-link' do %>
-        <%#= image_tag collage_block_item.media_item.attachment.url(:medium) %>
         <%= lazy_image collage_block_item.media_item, size: :medium, class: 'no-transition' %>
       <% end %>
     <% end %>
