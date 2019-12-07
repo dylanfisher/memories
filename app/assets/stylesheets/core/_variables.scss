@@ -10,13 +10,14 @@ $black: #000000;
 
 // Color assignments
 $image-placeholder-background-color: rgba(0, 0, 0, 0.1);
-$highlight-color: gray;
+$highlight-color: #64362a;
 
 // Transitions
 $tt: 0.2s;
 
 // Sizes
-$gutter: 15px;
+$gutter: 12px;
+$grid-gutter-width: $gutter * 2;
 
 $site-max-width: 1400px;
 $site-padding-sm: 0;

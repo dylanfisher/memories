@@ -1,17 +1,13 @@
 // Font stacks
-$font-thin: 'NationalTest-Thin', sans-serif;
-$font-book: 'NationalTest-Book', sans-serif;
-$font-regular: 'NationalTest-Regular', sans-serif;
-$font-medium: 'NationalTest-Medium', sans-serif;
-$font-black: 'NationalTest-Black', sans-serif;
-$font-bold: 'NationalTest-Bold', sans-serif;
-$font-mono-regular: 'FoundersGrotMonoTest-Regular', monospace;
+$font-mono-regular: 'FoundersGroteskMono', monospace;
+$suisse-regular: 'SuisseIntl-Regular', sans-serif;
+$suisse-medium: 'SuisseIntl-Medium', sans-serif;
 
 @mixin body-text {
   font-size: 18px;
   letter-spacing: 0;
   line-height: 1.4;
-  font-family: $font-book;
+  font-family: $suisse-regular;
 
   @include breakpoint(md) {
     font-size: 24px;
@@ -27,7 +23,7 @@ $font-mono-regular: 'FoundersGrotMonoTest-Regular', monospace;
   font-size: 34px;
   letter-spacing: 0;
   line-height: 1;
-  font-family: $font-bold;
+  font-family: $suisse-medium;
 
   @include breakpoint(md) {
     font-size: 54px;
@@ -35,11 +31,24 @@ $font-mono-regular: 'FoundersGrotMonoTest-Regular', monospace;
 }
 .large-title { @include large-title; }
 
-@mixin small-text {
-  font-size: 16px;
+@mixin jumbo-title {
+  font-size: 36px;
   letter-spacing: 0;
+  line-height: 1;
+  font-family: $suisse-medium;
+
+  @include breakpoint(md) {
+    font-size: 60px;
+  }
+}
+.jumbo-title { @include jumbo-title; }
+
+@mixin small-text {
+  font-size: 12px;
+  letter-spacing: 0.5px;
   line-height: 1.2;
-  font-family: $font-regular;
+  font-family: $suisse-regular;
+  text-transform: uppercase;
 }
 .small-text { @include small-text; }
 

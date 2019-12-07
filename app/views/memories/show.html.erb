@@ -3,8 +3,8 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-sm-12">
-          <%= content_tag :h1, md(@memory.title), class: 'large-title' %>
-          <%= content_tag :div, @memory.date.strftime('%B %d, %Y') %>
+          <%= content_tag :h1, md(@memory.title) %>
+          <%= content_tag :div, @memory.date.strftime('%B %d, %Y'), class: 'memory-index__date small-text muted' %>
           <%= content_tag :div, md(@memory.description) if @memory.description.present? %>
         </div>
       </div>

@@ -1,13 +1,18 @@
 <div class="site-container">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-sm-12">
-        <% block.media_items.each_with_index do |media_item, index| %>
+      <% block.media_items.each_with_index do |media_item, index| %>
+        <% if media_item.portrait? %>
+          <% css_class = 'col-10 offset-1 col-md-8 offset-md-2' if media_item.portrait? %>
+        <% else %>
+          <% css_class = 'col-12' %>
+        <% end %>
+        <%= content_tag :div, class: css_class do %>
           <%= link_to media_item.attachment.url, class: 'blank-link' do %>
             <%= lazy_image media_item, wrapper_class: "#{'mt-5' unless index.zero?}" %>
           <% end %>
         <% end %>
-      </div>
+      <% end %>
     </div>
   </div>
 </div>

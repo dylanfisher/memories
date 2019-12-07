@@ -4,7 +4,12 @@
       <%= content_tag :div, class: "col-md-#{block.col_size} offset-#{block.col_offset}" do %>
         <% block.media_items.each_with_index do |media_item, index| %>
           <%= link_to media_item.attachment.url, class: "image-sequence-block__image blank-link #{'active' if index.zero?}" do %>
-            <%= image_tag media_item.attachment.url(:medium), size: block.image_size %>
+            <% if media_item.portrait? %>
+              <% attachment_size = block.col_size < 6 ? :medium : :large %>
+            <% else %>
+              <% attachment_size = block.col_size < 8 ? :medium : :large %>
+            <% end %>
+            <%= image_tag media_item.attachment.url(attachment_size), size: block.image_size %>
           <% end %>
         <% end %>
       <% end %>

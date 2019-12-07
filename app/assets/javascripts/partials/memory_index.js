@@ -27,7 +27,7 @@ $(document).on('turbolinks:load', function() {
     var newElements = [];
 
     for (var i = urls.length - 1; i >= 0; i--) {
-      newElements.push('<div class="col-4 col-md-2"><div class="background-image landscape-image" style="background-image: url(' + urls[i] + ');"></div></div>');
+      newElements.push('<div class="col-4 col-md-2"><div class="memory-index__image background-image landscape-image" style="background-image: url(' + urls[i] + ');"></div></div>');
     }
 
     $previewArea.html(newElements);

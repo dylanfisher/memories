@@ -1,22 +1,20 @@
 @mixin link-hover {
-  border-bottom: 1px solid;
+  text-decoration: underline;
 }
 
 @mixin link-active {
-  border-bottom: 1px solid;
+  text-decoration: underline;
 }
 .link-active { @include link-active; }
 
 @mixin blank-link {
   text-decoration: none;
-  border-bottom: 0;
   color: inherit;
 }
 .blank-link { @include blank-link; }
 
 @mixin blank-link-hover {
   @include blank-link;
-  border-bottom: 1px solid transparent;
 
   &:hover {
     @include breakpoint(sm) {
@@ -38,6 +36,16 @@
   }
 }
 .default-link { @include default-link; }
+
+@mixin hover-link {
+  @include blank-link;
+  transition: color 0.1s;
+
+  &:hover {
+    color: $highlight-color;
+  }
+}
+.hover-link { @include hover-link; }
 
 // .external-link {
 //   cursor: alias;
