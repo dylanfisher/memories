@@ -1,5 +1,11 @@
 (function() {
-  $('#screensaver').css({
-    backgroundImage: "url('<%= @media_item.attachment.url %>')"
-  });
+  var $wrapper = $('#screensaver');
+  var $preload = $('#screensaver-preload');
+
+  $wrapper.css({
+    backgroundImage: 'url(' + $preload.attr('src') + ')'
+  }).attr('data-orientation', $preload.attr('data-orientation'));
+
+  $preload.attr('src', '<%= @media_item.attachment.url %>')
+          .attr('data-orientation', '<%= @media_item.landscape? ? 'landscape' : 'portrait' %>');
 })();

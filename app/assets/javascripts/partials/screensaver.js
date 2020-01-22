@@ -13,7 +13,7 @@ $(document).on('turbolinks:load', function() {
     }).done(function(data) {
       window.setTimeout(function() {
         getImage();
-      }, 7000);
+      }, 8000);
     });
   };
 
