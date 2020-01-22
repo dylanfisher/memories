@@ -105,6 +105,7 @@ Rails.application.configure do
     path: '/production/v2/:class/:attachment/:id_partition/:style/:filename',
     s3_headers: { 'Cache-Control' => 'public, max-age=31536000' },
     s3_protocol: :https,
-    s3_host_alias: Rails.application.credentials.dig(:asset_host).sub(/^https?:\/\//, '')
+    s3_host_alias: 's3.amazonaws.com/memories.dylanfisher.com'
+    # s3_host_alias: Rails.application.credentials.dig(:asset_host).sub(/^https?:\/\//, '')
   }
 end
