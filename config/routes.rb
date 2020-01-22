@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   resources :memories, only: [:index, :show]
 
+  get 'screensaver', to: 'screensaver#index'
+
   # Admin
   namespace :admin do
     resources :locations

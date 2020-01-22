@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%= csp_meta_tag %>
+    <%= jquery_include_tag %>
+    <%= stylesheet_link_tag 'forest/application_public', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'forest/application_public' %>
+  </head>
+  <body id="screensaver" class="screensaver" data-screensaver-path="<%= screensaver_path %>">
+    <%= yield %>
+  </body>
+</html>
