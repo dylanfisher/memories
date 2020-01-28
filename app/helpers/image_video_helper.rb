@@ -1,6 +1,6 @@
 module ImageVideoHelper
   def lazy_image(media_item, options = {})
-    size = options.delete(:size) || :large
+    size = options.delete(:size) || :original
     data = options.delete(:data) || {}
 
     alt = options.delete(:alt) || media_item.alternative_text
@@ -10,13 +10,13 @@ module ImageVideoHelper
     options.merge!(alt: alt) if alt.present?
 
     styles = media_item.attachment.options[:styles]
-    index = [styles.find_index { |k, v| k == size }, 2].max
+    index = [(styles.find_index { |k, v| k == size }.presence || 3), 2].max
     size_mobile = options.delete(:size_mobile) || (size == :large ? styles.keys[index - 1] : size)
 
     data.merge!(src: media_item.attachment.url(size),
                 src_mobile: media_item.attachment.url(size_mobile),
                 src_full: media_item.attachment.url(:medium),
-                src_full_mobile: media_item.attachment.url(:large))
+                src_full_mobile: media_item.attachment.url(:original))
 
     if options.delete(:background)
       options.merge!('aria-label': alt) if alt.present?
