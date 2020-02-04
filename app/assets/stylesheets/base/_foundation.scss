@@ -2,4 +2,6 @@
 
 html {
   @include default-font;
+  background: $black;
+  color: $white;
 }
