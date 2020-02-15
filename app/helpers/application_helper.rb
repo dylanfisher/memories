@@ -13,4 +13,8 @@ module ApplicationHelper
       content_tag :span, data, class: 'exif-data__text'
     end
   end
+
+  def full_width?
+    params[:full] == 'true'
+  end
 end
