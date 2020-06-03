@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_20_221829) do
+ActiveRecord::Schema.define(version: 2020_06_03_024409) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -100,6 +100,8 @@ ActiveRecord::Schema.define(version: 2019_10_20_221829) do
   create_table "image_blocks", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "media_item_range"
+    t.string "media_item_skip_range"
   end
 
   create_table "image_grid_block_slides", force: :cascade do |t|

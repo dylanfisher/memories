@@ -1,1 +1,9 @@
+<div class="row">
+  <div class="col-sm-6 form-group">
+    <%= f.input :media_item_range, hint: 'Specify a range, such as 123-145 or comma-separated IDs.' %>
+  </div>
+  <div class="col-sm-6 form-group">
+    <%= f.input :media_item_skip_range, hint: 'Specify a range or comma-separated IDs to skip.' %>
+  </div>
+</div>
 <%= f.association :media_items, as: :gallery, sortable: true %>

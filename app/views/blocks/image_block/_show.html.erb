@@ -1,7 +1,7 @@
 <div class="site-container">
   <div class="container-fluid">
     <div class="row">
-      <% block.media_items.each_with_index do |media_item, index| %>
+      <% block.media_items_to_use.each_with_index do |media_item, index| %>
         <% if media_item.portrait? %>
           <% css_class = 'col-10 offset-1 col-md-8 offset-md-2' if media_item.portrait? %>
         <% else %>
