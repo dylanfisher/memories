@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_06_03_024409) do
+ActiveRecord::Schema.define(version: 2020_10_10_171241) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -179,6 +179,7 @@ ActiveRecord::Schema.define(version: 2020_06_03_024409) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["blockable_metadata"], name: "index_memories_on_blockable_metadata", using: :gin
+    t.index ["date"], name: "index_memories_on_date"
     t.index ["slug"], name: "index_memories_on_slug", unique: true
     t.index ["status"], name: "index_memories_on_status"
   end
