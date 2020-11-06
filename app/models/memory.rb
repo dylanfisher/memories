@@ -3,6 +3,8 @@ class Memory < Forest::ApplicationRecord
   include Sluggable
   include Statusable
 
+  validates :date, presence: true
+
   scope :by_date, -> (orderer = :desc) { order(date: orderer) }
 
   # def self.resource_description
