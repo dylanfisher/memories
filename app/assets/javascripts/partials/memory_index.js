@@ -19,17 +19,35 @@ $(document).on('turbolinks:load', function() {
     return result;
   };
 
-  $memories.each(function() {
-    var $memory = $(this);
-    var $previewArea = $memory.find('.memory-index__preview-area');
-    var allUrls = JSON.parse( $memory.attr('data-image-urls') );
-    var urls = getRandom(allUrls, Math.min(6, allUrls.length));
-    var newElements = [];
+  var randomizeImages = function($elements) {
+    $elements.each(function() {
+      var $memory = $(this);
+      var $previewArea = $memory.find('.memory-index__preview-area');
+      var allUrls = JSON.parse( $memory.attr('data-image-urls') );
+      var urls = getRandom(allUrls, Math.min(6, allUrls.length));
+      var newElements = [];
 
-    for (var i = urls.length - 1; i >= 0; i--) {
-      newElements.push('<div class="col-4 col-md-2"><div class="memory-index__image background-image landscape-image lazy-image lazy-image--background lazyload" data-bg="' + urls[i] + '"></div></div>');
+      for (var i = urls.length - 1; i >= 0; i--) {
+        newElements.push('<div class="col-4 col-md-2"><div class="memory-index__image background-image landscape-image lazy-image lazy-image--background lazyload" data-bg="' + urls[i] + '"></div></div>');
+      }
+
+      $previewArea.html(newElements);
+    });
+  };
+
+  randomizeImages($memories);
+
+  $(document).off('keypress.memoryIndex');
+  $(document).on('keypress.memoryIndex', function(e) {
+    if ( e.which == 114 ) {
+      // "r" key was pressed
+      $memories.each(function() {
+        var $memory = $(this);
+
+        if ( App.inViewport($memory) ) {
+          randomizeImages($memory);
+        }
+      });
     }
-
-    $previewArea.html(newElements);
   });
 });
