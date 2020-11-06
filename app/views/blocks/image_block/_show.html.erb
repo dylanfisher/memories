@@ -9,7 +9,7 @@
         <% end %>
         <%= content_tag :div, class: css_class do %>
           <%= link_to media_item.attachment.url, class: 'blank-link' do %>
-            <%= lazy_image media_item, wrapper_class: "#{'mt-5' unless index.zero?}" %>
+            <%= lazy_image media_item, wrapper_class: "#{'mt-5' unless index.zero?}", class: 'media-item' %>
           <% end %>
         <% end %>
       <% end %>
